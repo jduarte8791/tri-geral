@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title> BOT de Harbitragens </title>
+      <meta charset="UTF-8">
+      <!-- <link rel="stylesheet" href="estilos/estilos.css"> -->
+      <link rel="stylesheet" href="estilos/index.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!-- <link rel="stylesheet" href="estilos/bootstrap.css"> -->
+      <script src="js/jquery.min.js"></script>
+                  
+
+  </head>
+  <body id="corpo_cad_u">
+       <header>
+            <div class="wrapper">
+                <div class="logo">
+                    <h2>Trades do BOT</h2>   
+                </div>
+                <div class="header-content">
+                     <nav class="nav-header">
+                         <ul>
+                            <li> <a href="#" id="cad_usuario_menu"> Cadastrar Usuário </a></li>
+                            <li> <a href="http://localhost:3002/trades" id="lista_trades_menu"> Lista de Harbitragens</a> </li>
+                         </ul>
+                     </nav>
+
+                </div>
+            </div>
+       </header> 
+
+
+        <div class="content section-wrapper" id="form_cadastro_container" data-page="index">
+              <aside class="aside-bar">
+                <!-- <h1 class="aside-title" > Aside Bar </h1> -->
+                <div class="sidebar">
+                    <!-- <a href="#" id="cad_usuario_menu"> Cadastrar Usuário </a> -->
+                    <a href="http://localhost:3002/trades" id="trades_menu" target="_blank"> Lista de Harbitragens </a> <br>
+                    <a href="http://localhost:3002/grafico" target="_blank" > Gráfico </a>
+                </div> 
+                
+              </aside>
+
+              <div class="section-content">
+                    <section id="home" class="section">
+                        <h2> Cadastrar Usuário </h2>
+                    </section>
+
+                    <form id="form_cadastro"> <!-- class="form-horizontal" action="/index" method="get" -->
+                    <!-- Caixa do nome-->
+                    <div class="form-group">
+                        <label for="nome" class="control-label margin-left-labels">ID</label>
+                        <div>
+                            <input name="id_cliente" type="text" class="form-control margens-edt-text desabilitar habilitar">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+        
+        
+                    <!-- Caixa do nome-->
+                    <div class="form-group">
+                    <label for="nome" class="control-label margin-left-labels">Nome</label>
+                    <div>
+                        <input id="nome" name="nome" type="text" placeholder="Insira seu nome" class="form-control margens-edt-text desabilitar habilitar" required>
+                        <p class="help-block"></p>
+                    </div>
+                    </div>
+        
+                    <!-- Caixa do matricula-->
+                    <div class="form-group">
+                    <label for="matricula" class="control-label margin-left-labels">Matrícula</label>
+                    <div>
+                        <input id="matricula" name="matricula" type="text" placeholder="Insira sua matrícula" class="form-control margens-edt-text desabilitar habilitar" >
+                        <p class="help-block"></p>
+                    </div>
+                    </div>
+        
+        
+                    <!-- Caixa do e-mail-->
+                    <div class="form-group">
+                    <label for="email" class="control-label  margin-left-labels">E-mail</label>
+                    <div>
+                        <input id="email" name="email" type="text" placeholder="Insira seu e-mail" class="form-control margens-edt-text" >
+                        <p class="help-block"></p>
+                    </div>
+                    </div>
+        
+                    <!-- caixa do telefone-->
+                    <div class="form-group">
+                        <label for="telefone" class="control-label  margin-left-labels">Telefone</label>
+                        <div>
+                        <input id="telefone" name="telefone" type="text" placeholder="Insira seu telefone" class="form-control margens-edt-text" >
+                        <p class="help-block"></p>
+                        </div>
+                    </div>
+                
+                    <!-- Button -->
+        
+                    <div class="form-group">
+                    <label class="control-label"></label>
+                    <div class="button floatLeft">
+                        <button id="btn_novo" class="btn btn-success habilitar desbtnovo botao "> Novo </button>                          
+                        <button id="btn_salvar"  class="btn btn-success botao habilitar desabilitar"> Salvar </button>                        
+                        <button id="bt_cancelar" class="btn btn-success botao habilitar desabilitar"> Cancelar </button>
+                        <!-- <button id="btn_pesquisar" class="btn btn-success botao"> Pesquisar </button> -->
+                        <button id="btn_excluir" class="btn btn-success botao habilitar desabilitar"> Excluir </button>              
+                        <button id="btn_atualizar" type="button" class="btn btn-success botao habilitar desabilitar"> Atualizar </button>
+                        <button id="btn_pesquisar" type="button" class="btn btn-success botao habilitar desabilitar"> Pesquisar </button>
+                        
+                    </div>
+                    </div>          
+        
+                </form>
+              </div>
+            
+        </div>
+
+        
+
+    <div class="content d-none" id="form_tabela_container">
+        <h1 class="text-center mb-4">Lista de Trades</h1>
+        <table class="table table-striped" id="tabela_trades">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Trade</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dados serão inseridos dinamicamente aqui -->
+          </tbody>
+        </table>
+    </div>
+
+    <!-- CODIGO PADRÃO -->
+    <div id="overlay" onclick="closeModal()">
+        <div id="modal" onclick="event.stopPropagation();">
+            <h4>Pesquisar por usuário</h4>
+            <span class="modal-close" onclick="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <footer>
+         <div class="footer-wrapper">
+              <div class="footer-content">
+                   <nav class="nav-footer">
+                        <h3 class="footer-title"> Siga-nos </h3>
+                        <ul>
+                             <li> <a href="#"> Twiter </a></li>
+                             <li> <a href="#"> Instagram </a></li>
+                             <li> <a href="#"> Facebook </a></li>
+                             <li> <a href="#"> Telegram </a></li>
+                        </ul>
+                   </nav> 
+              </div> 
+         </div>
+    </footer>
+</body>
+
+    <!-- <script>
+        $(document).ready( () => 
+        {
+            $('#btn_pesquisar').click( () =>
+            {
+                // location.href = '/pesquisar_todos'
+                // location.reload()
+                
+            } )
+
+            $('#btnovo').click ( () => 
+            {
+                $.ajax
+                (
+                   {
+                      url: '/cad_usuario',
+                      method: 'post',
+                      success: () => 
+                      {
+                          let btnovo = 'btnovo'
+                          console.log(`Botão novo foi clicado e enviado por AJAX / POST`)
+                      } 
+                   }   
+                )
+            })
+        })
+    </script> -->
+
+    <script src="js/index.js"></script>
+    <script type="module" src="js/Funcoes.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>      
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</html>

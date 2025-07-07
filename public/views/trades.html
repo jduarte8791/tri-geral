@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbitragem Triangular</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body>
+    <!-- <div class="menu-lateral">
+        <a href="http://localhost:3001/" id="cad_usuario_menu">Cadastrar Usuário</a>
+        <a href="http://localhost:3001/grafico" target="_blank" > Gráfico </a>
+    </div> -->
+    <main>
+        <h1>BOT que monitora de forma geral HARBITRAGEM TRIANGULAR</h1>
+        <table id="tradesTable" border="1">
+            <thead>
+                <tr>
+                    <th>SYMBOL</th>
+                    <th>EXCHANGE</th>
+                    <th>COMPRAR EM</th>
+                    <th>VENDER EM</th>
+                    <th>VOLUME COMPRAR</th>
+                    <th>VOLUME VENDER</th>
+                    <th>COMPRAR POR</th>
+                    <th>VENDER POR</th>
+                    <th>LUCRO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Conteúdo será populado dinamicamente -->
+            </tbody>
+        </table>
+    </main>
+
+    <script type="module" src="js/trades.js"></script>
+    <!-- <script type="module" src="js/binanceService.js"></script> -->
+    <!-- <script type="module" src="js/Funcoes.js"></script> -->
+</body>
+</html>
